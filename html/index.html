@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DIV+CSS布局</title>
+    <style>
+        /* 清除默认内外边距 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 头部导航 */
+        #header {
+            width: 100%;
+            height: 80px;
+            background-color: #217ad9;
+            color: #fff;
+            line-height: 80px;
+            padding-left: 30px;
+            font-size: 22px;
+        }
+        /* 主容器，清除浮动 */
+        #container {
+            width: 100%;
+            overflow: hidden;
+        }
+        /* 侧边栏 */
+        #aside {
+            width: 280px;
+            height: 700px;
+            background-color: #e6eeff;
+            float: left;
+            padding: 20px;
+            font-size: 16px;
+        }
+        #aside li {
+            margin: 12px 0;
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        /* 正文区域 */
+        #main {
+            width: calc(100% - 280px);
+            height: 700px;
+            background-color: #f8f8f8;
+            float: left;
+            padding: 30px;
+        }
+        /* 表单样式 */
+        .form-item {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        input {
+            padding: 4px 8px;
+            width: 220px;
+            margin-left: 8px;
+        }
+        button {
+            width: 90px;
+            height: 32px;
+            background-color: #217ad9;
+            color: white;
+            border: none;
+            font-size: 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        /* 底部 */
+        #footer {
+            width: 100%;
+            height: 60px;
+            background-color: #333333;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+            font-size: 15px;
+        }
+        /* 成绩单模块样式，默认隐藏 */
+        #scorePage {
+            display: none;
+        }
+        .score-card {
+            width: 450px;
+            margin: 20px auto;
+            border: 2px solid #217ad9;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        .score-card h2 {
+            text-align: center;
+            color: #217ad9;
+            margin-bottom: 20px;
+        }
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 17px;
+            border-bottom: 1px solid #eee;
+        }
+        .total-score {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #d83030;
+            text-align: right;
+        }
+        .back-btn {
+            margin-top: 20px;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <div id="header">广西招生考试院2026年高考成绩查询</div>
+
+    <!-- 主体容器 -->
+    <div id="container">
+        <!-- 左侧侧边栏 -->
+        <div id="aside">
+            <ul>
+                <li>考试报名</li>
+                <li>成绩查询</li>
+                <li>志愿填报</li>
+                <li>录取查询</li>
+                <li>工作系统</li>
+            </ul>
+        </div>
+        <!-- 右侧主内容区 -->
+        <div id="main">
+            <!-- 1. 查询表单页面（默认显示） -->
+            <div id="searchPage">
+                <h3>成绩查询</h3>
+                <div class="form-item">
+                    姓名：<input type="text" id="nameInput">
+                </div>
+                <div class="form-item">
+                    准考证号：<input type="text" id="idInput">
+                </div>
+                <div class="form-item">
+                    <button id="searchBtn">查询</button>
+                    <button id="resetBtn">清空重填</button>
+                </div>
+            </div>
+
+            <!-- 2. 成绩单页面（默认隐藏） -->
+            <div id="scorePage">
+                <div class="score-card">
+                    <h2>2026年普通高等学校招生全国统一考试成绩单</h2>
+                    <div class="score-item">
+                        <span>考生姓名：</span>
+                        <span id="showName"></span>
+                    </div>
+                    <div class="score-item">
+                        <span>准考证号：</span>
+                        <span id="showId"></span>
+                    </div>
+                    <div class="score-item">
+                        <span>语文</span>
+                        <span>135</span>
+                    </div>
+                    <div class="score-item">
+                        <span>数学</span>
+                        <span>128</span>
+                    </div>
+                    <div class="score-item">
+                        <span>英语</span>
+                        <span>145</span>
+                    </div>
+                    <div class="score-item">
+                        <span>物理</span>
+                        <span>88</span>
+                    </div>
+                    <div class="score-item">
+                        <span>化学</span>
+                        <span>92</span>
+                    </div>
+                    <div class="score-item">
+                        <span>生物</span>
+                        <span>96</span>
+                    </div>
+                    <div class="total-score">总分：<span id="totalNum"></span></div>
+                    <button class="back-btn" id="backBtn">返回查询</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部版权 -->
+    <div id="footer">版权信息2025级计算机科学与技术1班梨扒拉</div>
+
+    <!-- JS逻辑代码 -->
+    <script>
+        // 1. 获取所有DOM元素
+        const searchPage = document.getElementById('searchPage');
+        const scorePage = document.getElementById('scorePage');
+        const nameInput = document.getElementById('nameInput');
+        const idInput = document.getElementById('idInput');
+        const showName = document.getElementById('showName');
+        const showId = document.getElementById('showId');
+        const totalNum = document.getElementById('totalNum');
+        const searchBtn = document.getElementById('searchBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const backBtn = document.getElementById('backBtn');
+
+        // 固定各科分数
+        const scores = [135, 128, 145, 88, 92, 96];
+        // 计算总分
+        let total = 0;
+        for(let i = 0; i < scores.length; i++){
+            total += scores[i];
+        }
+
+        // 2. 查询按钮点击事件
+        searchBtn.onclick = function(){
+            // 获取输入内容
+            let nameVal = nameInput.value.trim();
+            let idVal = idInput.value.trim();
+            // 判断输入不能为空
+            if(nameVal === '' || idVal === ''){
+                alert('请填写完整姓名和准考证号！');
+                return;
+            }
+            // 给成绩单赋值考生信息
+            showName.innerText = nameVal;
+            showId.innerText = idVal;
+            totalNum.innerText = total;
+            // 切换页面：隐藏查询，显示成绩单
+            searchPage.style.display = 'none';
+            scorePage.style.display = 'block';
+        }
+
+        // 3. 清空重填按钮
+        resetBtn.onclick = function(){
+            nameInput.value = '';
+            idInput.value = '';
+        }
+
+        // 4. 返回查询按钮
+        backBtn.onclick = function(){
+            // 切换回查询页面
+            scorePage.style.display = 'none';
+            searchPage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

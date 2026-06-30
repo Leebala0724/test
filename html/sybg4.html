@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DIV+CSS布局</title>
+    <style>
+        * {
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box;
+        }
+        /* 头部导航 */
+        #header {
+            width: 1000px; 
+            height: 60px; 
+            background: #2c5daa; 
+            margin: 0 auto; 
+            color: white; 
+            line-height: 60px; 
+            padding-left: 20px;
+        }
+        /* 主容器 */
+        #container {
+            width: 1000px; 
+            margin: 10px auto; 
+            overflow: hidden;}
+        /* 侧边栏 */
+        #aside {
+            width: 220px; 
+            height: 450px; 
+            background: #e8f0ff; 
+            float: left; 
+            padding: 15px;
+        }
+        /* 正文区域 */
+        #main {
+            width: 760px; 
+            height: 450px; 
+            background: #f8f8f8; 
+            float: right; 
+            padding: 15px;
+        }
+        /* 底部 */
+        #footer {
+            width: 1000px; 
+            height: 50px; 
+            background: #333; 
+            margin: 0 auto; 
+            color: white; 
+            text-align: center; 
+            line-height: 50px;
+        }
+        input[type="submit"],input[type="reset"] {
+            width: 100px; 
+            background: #3d82c2; 
+            color: white; 
+            border: none; 
+            cursor: pointer;
+            padding: 6px;
+            margin-right: 10px;
+        }
+        input[type="submit"]:hover {
+            background: #052f66;
+        }
+        input[type="text"]{
+            border: 1px solid #031012; 
+            border-radius: 4px; 
+            padding: 5px; 
+            width: 220px;
+            margin: 3px 0 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">广西招生考试院2026年高考成绩查询</div>
+    <div id="container">
+        <div id="aside">
+            <ul>
+                <li>考试报名</li>
+                <li>成绩查询</li>
+                <li>志愿填报</li>
+                <li>录取查询</li>
+                <li>工作系统</li>
+            </ul>
+        </div>
+        <div id="main">成绩查询<br>
+            <form action="#" method="get">
+            <p>姓名：<input type="text" name="username"></p>
+            <p>准考证号：<input type="text" name="stuId"></p>
+            <p>
+            <input type="submit" value="查询">
+            <input type="reset" value="清空重填">
+            </p>
+        </div>
+        
+    </div>
+    <div id="footer">版权信息 2025级计算机科学与技术1班梨扒拉</div>
+</body>
+</html>

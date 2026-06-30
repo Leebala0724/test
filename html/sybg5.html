@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>水仙花数</title>
+</head>
+<body>
+    <h3>100~999水仙花数：</h3>
+    <script>
+        for(let i = 100; i <= 999; i++){
+            let a = Math.floor(i/100);
+            let b = Math.floor(i/10)%10;
+            let c = i%10;
+            if(a**3 + b**3 + c**3 === i){
+                document.write(i + " ");
+            }
+        }
+    </script>
+    <h3>九九乘法表</h3>
+    <script>
+        function printMultiTable(){
+            for(let i = 1; i <= 9; i++){
+                for(let j = 1; j <= i; j++){
+                    document.write(`${j}×${i}=${i*j}&nbsp;&nbsp;`);
+                }
+                document.write("<br>");
+            }
+        }
+        printMultiTable();
+    </script>
+    <h3>个人课表</h3>
+    <script>
+    // JSON数据源
+        let courseList = [
+            {
+                week:1,section:1,name:"前端开发",teacher:"陈学文"
+            },
+            {
+                week:1,section:3,name:"数据结构",teacher:"胡志竹"
+            },
+            {
+                week:2,section:2,name:"高等数学",teacher:"白永娟"
+            }
+        ];
+        // 拼接表格
+        let htmlStr = `<table border="1">
+            <tr>
+                <th>星期</th>
+                <th>节次</th>
+                <th>课程</th>
+                <th>教师</th>
+                </tr>`;
+        for(let item of courseList){
+            htmlStr += `<tr>
+                <td>${item.week}</td>
+                <td>${item.section}</td>
+                <td>${item.name}</td>
+                <td>${item.teacher}</td>
+            </tr>`;
+        }
+        htmlStr += "</table>";
+        document.write(htmlStr);
+    </script>
+</body>
+</html>

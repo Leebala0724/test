@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>子页面B</title>
+</head>
+<body>
+    <h4>子页面输入内容</h4>
+    <input type="text" id="msgInput" placeholder="在这里输入要传回父页面的文字">
+    <br><br>
+    <button onclick="sendToParent()">点击回填到父页面</button>
+
+    <script>
+        function sendToParent(){
+            // 获取输入框内容
+            let inputText = document.getElementById("msgInput").value;
+            // window.opener = 打开当前窗口的父页面window对象，调用父页面的setContent
+            window.opener.setContent(inputText);
+            // 可选：回填后自动关闭子弹窗
+            window.close();
+        }
+    </script>
+</body>
+</html>

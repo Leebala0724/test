@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<body>
+    <h3>父页面A</h3>
+    <p>子页面回填内容：<span id="showText"></span></p>
+    <button onclick="openChild()">打开页面B</button>
+    <script>
+        let childWin = null;
+        function openChild(){
+            childWin = window.open("child.html","","width=400,height=300");
+        }
+        // 供子页面调用回填数据
+        function setContent(text){
+            document.getElementById("showText").innerText = text;
+        }
+    </script>
+</body>
+</html>

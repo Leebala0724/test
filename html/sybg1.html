@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML标签综合实验页面</title>
+</head>
+<body>
+    <!-- 1. 文字、段落、标题文本标签 -->
+    <h1>HTML基本标记</h1>
+    <h3>一、实验简介</h3>
+    <p>本页面使用文字段落、<b>加粗文字</b>、<i>斜体文字</i>、
+        声音、图片、视频、动画、列表、<a href="https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Howto/Web_mechanics/What_are_hyperlinks">超链接</a>、
+        表格、子框架等标签制作网页。<br>
+    </p>
+
+    <!-- 2. 有序、无序列表标签 -->
+    <h3>二、本学期专业课程清单</h3>
+    <ul>
+        <li>前端开发技术基础</li>
+        <li>高等数学</li>
+        <li>数据结构与算法</li>
+        <li>大学物理</li>
+    </ul>
+    <h3>三、前端学习阶段规划</h3>
+    <ol>
+        <li>熟练掌握HTML全部基础标记，完成多媒体网页制作</li>
+        <li>学习CSS样式，实现页面美化与DIV布局</li>
+        <li>学习JavaScript，实现页面交互动态效果</li>
+    </ol>
+
+    <!-- 3. 表格标签 -->
+    <h3>四、个人信息登记表</h3>
+    <table border="1" width="600" cellpadding="6">
+        <tr>
+            <th>姓名</th>
+            <th>学号</th>
+            <th>专业</th>
+            <th>班级</th>
+        </tr>
+        <tr>
+            <td>李庆佳</td>
+            <td>250223101124</td>
+            <td>计算机科学与技术</td>
+            <td>25级计科1班</td>
+        </tr>
+    </table>
+
+    <!-- 4. 多媒体：静态图片 + GIF动画 -->
+    <h3>五、图片与GIF动画展示</h3>
+    <p>我推:</p>
+    <img src="./dmt/此生挚爱.jpg" width="320" alt="编程学习静态图片">
+    <p>GIF动画图：</p>
+    <img src="./dmt/dongtu.gif" width="320" alt="代码动态GIF动画">
+
+    <!-- 5. 音频audio标签-->
+    <h3>六、背景音乐音频播放器</h3>
+    
+	<audio controls>
+        <source src="./dmt/daox.mp3" type="audio/mpeg">
+        <source src="./dmt/daox.ogg" type="audio/ogg">
+        <embed height="50" width="100" src="./dmt/daox.mp3">
+    </audio>
+	
+    <!-- 6. 视频video标签 -->
+    <h3>七、前端教学视频播放</h3>
+    <video width="450" controls src="./dmt/miao.mp4">
+        
+    </video>
+
+    <!-- 7. 超链接a标签 -->
+    <h3>八、超链接跳转区域</h3>
+    <p>外部学习文档：
+        <a href="https://www.runoob.com/" target="_blank">菜鸟教程</a>
+    </p>
+    <p>页面底部锚点跳转：<a href="#footer">点击直达页面底部子框架区域</a></p>
+
+    <!-- 8. 子框架iframe标签 -->
+    <div id="footer">
+        <h3>九、iframe子框架嵌套页面</h3>
+        <p>下方框架嵌入独立表格子页面:qd.html</p>
+        <iframe src="qd.html" width="650" height="300" border="1"></iframe>
+        <p>©2025计算机科学与技术1班 HTML基础实验作业</p>
+    </div>
+</body>
+</html>
