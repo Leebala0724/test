@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+Ss<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>DIV+CSS布局</title>
-    <style>
+    <style>/*选择器：id用#，class用.*/
         /* 清除默认内外边距 */
         * {
             margin: 0;
@@ -12,50 +12,53 @@
         }
         /* 头部导航 */
         #header {
-            width: 100%;
-            height: 80px;
-            background-color: #217ad9;
-            color: #fff;
-            line-height: 80px;
-            padding-left: 30px;
-            font-size: 22px;
+            width: 100%;/* 宽度占满浏览器可视区域 */
+            height: 80px; /* 固定盒子高度 */
+            background-color: #217ad9;/* 背景色 */
+            color: #fff;/* 文字颜色 */
+            line-height: 80px;/* 单行文字垂直居中：行高=盒子高度 */
+            padding-left: 30px;/* 左侧内边距，文字不和左边贴死 */
+            font-size: 22px;/* 文字大小 */
         }
         /* 主容器，清除浮动 */
         #container {
             width: 100%;
             overflow: hidden;
+            /* 子元素使用float浮动会脱离标准流，父容器高度自动塌陷；
+            overflow:hidden 可以触发BFC，自动包裹浮动子元素，清除浮动 */
         }
         /* 侧边栏 */
         #aside {
             width: 280px;
             height: 700px;
             background-color: #e6eeff;
-            float: left;
-            padding: 20px;
+            float: left;/* 左浮动，盒子横向并排，脱离标准文档流 */
+            padding: 20px;/* 内部留白，即内边距 */
             font-size: 16px;
         }
         #aside li {
-            margin: 12px 0;
-            list-style-type: disc;
-            margin-left: 20px;
+            margin: 12px 0;/* 上下外边距，拉开列表间距 */
+            list-style-type: disc;/* 列表符号：实心圆点 */
+            margin-left: 20px;/* 列表整体向右缩进 */
         }
-        /* 正文区域 */
+        /* 正文区域 右侧主内容区*/
         #main {
             width: calc(100% - 280px);
+            /* calc计算函数：页面总宽度减去侧边栏宽度，自适应剩余宽度，不会换行 */
             height: 700px;
             background-color: #f8f8f8;
-            float: left;
+            float: left;/* 和侧边栏一起左浮动，实现左右两栏布局 */
             padding: 30px;
         }
         /* 表单样式 */
         .form-item {
-            margin: 15px 0;
+            margin: 15px 0;/* 表单上下间距 */
             font-size: 16px;
         }
         input {
-            padding: 4px 8px;
-            width: 220px;
-            margin-left: 8px;
+            padding: 4px 8px;/* 输入框内部留白 */
+            width: 220px;/* 输入框固定宽度 */
+            margin-left: 8px;/* 和前面文字拉开距离 */
         }
         button {
             width: 90px;
@@ -73,39 +76,41 @@
             height: 60px;
             background-color: #333333;
             color: #fff;
-            text-align: center;
-            line-height: 60px;
+            text-align: center;/* 内部文字水平居中 */
+            line-height: 60px;/* 单行文字垂直居中 */
             font-size: 15px;
         }
         /* 成绩单模块样式，默认隐藏 */
         #scorePage {
             display: none;
+            /* 页面加载默认隐藏该区块，display:none完全不占页面空间 */
         }
+    
         .score-card {
             width: 450px;
-            margin: 20px auto;
-            border: 2px solid #217ad9;
+            margin: 20px auto;/* auto实现盒子自身水平居中 */
+            border: 2px solid #217ad9;/* 边框 */
             padding: 25px;
-            border-radius: 8px;
+            border-radius: 8px;/* 圆角边框 */
         }
         .score-card h2 {
             text-align: center;
             color: #217ad9;
-            margin-bottom: 20px;
+            margin-bottom: 20px;/* 下方外边距，和下面内容分隔 */
         }
         .score-item {
-            display: flex;
-            justify-content: space-between;
+            display: flex;/* flex弹性布局，实现左右文字两端对齐 */
+            justify-content: space-between;/* 子元素左右两端分散对齐 */
             padding: 8px 0;
             font-size: 17px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #eee;/* 底部分割线 */
         }
         .total-score {
             margin-top: 15px;
             font-size: 20px;
-            font-weight: bold;
+            font-weight: bold;/* 文字加粗 */
             color: #d83030;
-            text-align: right;
+            text-align: right;/* 文字右对齐 */
         }
         .back-btn {
             margin-top: 20px;

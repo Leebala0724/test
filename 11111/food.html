@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苏州美食 | 苏州旅游攻略</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "楷体", serif;
+            background-color: #f8f3ec;
+            color: #333;
+        }
+        /* 导航栏 */
+        header {
+            background-color: #622929;
+            padding: 18px 0;
+        }
+        .nav-wrap {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title-logo {
+            font-size: 30px;
+            color: #fff;
+            font-weight: bold;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 18px;
+        }
+        nav a.active {
+            color: #ffd799;
+        }
+        nav a:hover {
+            color: #ffd799;
+        }
+        /* 顶部横幅 */
+        .banner {
+            background-image: url("./拙政园3.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 500px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(8, 18, 68, 0.3);
+            background-blend-mode: multiply;
+        }
+        .banner h1 {
+            font-size: 60px;
+            color: #d5dce8;
+            margin-bottom: 20px;
+        }
+        .banner p {
+            font-size: 28px;
+            color: #ffc3b4;
+        }
+        /* 景点卡片容器 */
+        .container {
+            width: 1200px;
+            margin: 0 auto 40px;
+        }
+        .container h2 {
+            color: #6c2c2c;
+            border-left: 5px solid #b88c6c;
+            padding-left: 12px;
+            margin: 30px 0 20px;
+        }
+        .spot-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .spot-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e2d3c4;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .spot-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px #d1c0b0;
+        }
+        .card-img {
+            height: 500px;
+            background-color: #d1c0b0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #6c2c2c;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .card-text {
+            padding: 15px;
+            text-align: center;
+        }
+        .card-text h3 {
+            color: #702121;
+            margin-bottom: 8px;
+        }
+        /* 页脚 */
+        footer {
+            background: #6c2c2c;
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+        /* 返回顶部按钮 */
+        #backTop {
+            width: 50px;
+            height: 50px;
+            background: #6c2c2c;
+            color: #fff;
+            border-radius: 50%;
+            position: fixed;
+            right: 60px;
+            bottom: 60px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* 子页面详情盒子 */
+        .detail-box{
+            width:1200px;
+            margin:30px auto;
+            background:#fff;
+            border:2px solid #e2d3c4;
+            border-radius:10px;
+            padding:40px;
+        }
+        .detail-img{
+            width:100%;
+            height:350px;
+            background:#d1c0b0;
+            border-radius:8px;
+            margin:20px 0;
+            overflow:hidden;
+        }
+        .detail-img img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+        .detail-box p{
+            line-height:2;
+            font-size:18px;
+            margin:10px 0;
+        }
+        .detail-box h3{
+            color:#702121;
+            margin:18px 0 8px;
+        }
+        /* 单行左图右文美食模块 新增样式，不改动原有代码 */
+        .food-item{
+            display: flex;
+            gap:30px;
+            margin:35px 0;
+            padding-bottom:35px;
+            border-bottom:1px solid #eee;
+        }
+        .food-item:last-child{
+            border-bottom:none;
+        }
+        .food-left{
+            width:40%;
+        }
+        .food-left img{
+            width:100%;
+            height:500px;
+            object-fit:cover;
+            border-radius:8px;
+            background:#d1c0b0;
+        }
+        .food-right{
+            width:60%;
+        }
+        .food-right h3{
+            font-size:24px;
+            margin-bottom:15px;
+            color:#702121;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-wrap">
+            <div class="title-logo">苏州旅游攻略</div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="suzhou-intro.html">苏州概况</a>
+                <a href="garden.html">苏州园林</a>
+                <a href="zhouzhuang.html">周庄古镇</a>
+                <a href="tongli.html">同里古镇</a>
+                <a href="xiyuan.html">西园寺</a>
+                <a href="jiminsi.html">鸡鸣寺</a>
+                <a href="shantang.html">七里山塘</a>
+                <a href="food.html" class="active">苏州美食</a>
+                <a href="message.html">游客留言</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="detail-box">
+        <h2>苏州特色美食大全</h2>
+        <p>苏式饮食甜鲜清淡、讲究时令，菜品软糯鲜甜，河鲜时令菜肴层出不穷，平江路、山塘街遍布各色烟火小店，舌尖尽是江南风味。</p>
+
+        <!-- 第1行：苏帮名菜 -->
+        <div class="food-item">
+    <div class="food-left">
+        <img src="food1.jpg" alt="苏帮名菜合集">
+    </div>
+    <div class="food-right">
+        <h3>一、经典苏帮名菜</h3>
+            <p>1.松鼠桂鱼：苏菜招牌，鱼肉改刀炸至蓬松，裹上酸甜浓汁，外酥里嫩，宴席必备。</p>
+            <p>2.桂花红烧肉：大块五花肉慢炖入味，淋上桂花蜜，肥而不腻，酱香浓郁。</p>
+            <p>3.响油鳝糊：出锅后浇上热油，鳝丝软滑鲜嫩，蒜香扑鼻，下饭神器。</p>
+            <p>4.藏书羊肉：秋冬时令硬菜，白汤羊肉暖而无膻，冬日暖胃首选。</p>
+        </div>
+    </div>
+
+        <!-- 第2行：三虾面 -->
+        <div class="food-item">
+            <div class="food-left">
+                <img src="food2.jpg" alt="水乡苏式宴席">
+            </div>
+            <div class="food-right">
+                <h3>二、水乡临河苏式宴席</h3>
+                <p>临水而食是苏州独有的用餐体验，窗边游船缓缓划过，桌上摆满各式时令河鲜、精致冷盘与特色热菜。</p>
+                <p>荤素搭配清淡鲜甜，兼顾颜值与口感，出游聚餐首选，沉浸式感受江南水乡吃饭氛围感。</p>
+            </div>
+        </div>
+
+        <!-- 第3行：秃黄油面 -->
+        <div class="food-item">
+            <div class="food-left">
+                <img src="food3.jpg" alt="秃黄油面">
+            </div>
+            <div class="food-right">
+                <h3>三、金秋秃黄油面</h3>
+                <p>秃黄油专为秋季螃蟹上市打造，只用纯蟹黄、蟹膏熬制，无一丝蟹肉，色泽金黄油润。拌面之后香气浓郁，入口绵密醇厚，蟹鲜味直击味蕾，是面食中的高端时令美味，适合喜爱蟹味的游客。搭配姜丝可以中和油腻，口感更佳。</p>
+            </div>
+        </div>
+
+        <!-- 第4行：奥灶面 -->
+        <div class="food-item">
+            <div class="food-left">
+                <img src="food4.jpg" alt="奥灶面与苏式面食">
+            </div>
+            <div class="food-right">
+            <h3>四、非遗奥灶面</h3>
+                <p>奥灶面起源昆山，拥有百年历史，属于江南非遗面食。分红汤、白汤两大汤底，红汤醇厚香甜，经典浇头为爆鱼、卤焖肉；白汤清爽清淡。面条选用特制水面，久煮不烂，大街小巷老字号随处可见，平价又地道，是本地人日常早餐首选。</p>
+            </div>
+        </div>
+
+        <!-- 第5行：苏式特色小吃 -->
+        <div class="food-item">
+            <div class="food-left">
+                <img src="food5.jpg" alt="苏式文创小吃合集">
+            </div>
+            <div class="food-right">
+                <h3>五、街巷特色打卡小吃</h3>
+                <p>1.桂花冰淇淋：苏州限定文创冷饮，淡淡桂花香，逛老街拍照出圈必备。</p>
+                <p>2.爆浆蟹黄生煎：外皮松软，内馅汤汁浓郁，掰开爆汁，街边人气小吃。</p>
+                <p>3.苏式国风慕斯：造型雅致，复刻园林窗棂、荷叶造型，清甜不腻。</p>
+                <p>4.松鼠桂鱼小份快餐：单人出游可尝，浓缩苏帮菜招牌风味。</p>
+            </div>
+        </div>
+
+        <h2>美食游玩贴士</h2>
+        <p>老字号推荐：松鹤楼、得月楼主打苏帮本帮菜；裕兴记、同得兴是苏式面老字号；七里山塘、平江路沿街可以品尝各类水乡小吃。</p>
+        <p>口味小提示：苏州整体口味偏清甜，不喜甜味可以提前告知店家少放糖。</p>
+    </div>
+
+    <footer>
+        <p>苏州旅游攻略网站 | 图片来源于网络</p>
+    </footer>
+    <div id="backTop">↑</div>
+    <script>
+        const backTop = document.getElementById('backTop');
+        window.onscroll = function(){
+            if(window.scrollY > 300){
+                backTop.style.display = "flex";
+            }else{
+                backTop.style.display = "none";
+            }
+        }
+        backTop.onclick = function(){
+            window.scrollTo({top:0,behavior:'smooth'})
+        }
+    </script>
+</body>
+</html>

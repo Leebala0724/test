@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苏州古典园林 | 苏州旅游攻略</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "楷体", serif;
+            background-color: #f8f3ec;
+            color: #333;
+        }
+        /* 导航栏 */
+        header {
+            background-color: #314e4a;
+            padding: 18px 0;
+        }
+        .nav-wrap {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title-logo {
+            font-size: 30px;
+            color: #fff;
+            font-weight: bold;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 18px;
+        }
+        nav a.active {
+            color: #ffd799;
+        }
+        nav a:hover {
+            color: #ffd799;
+        }
+        /* 顶部横幅 */
+        .banner {
+             /* 1. 背景图片路径*/
+            background-image: url("./拙政园3.jpg");
+            /* 2. 背景铺满容器，不变形 */
+            background-size: cover;
+            /* 3. 背景居中显示 */
+            background-position: center;
+            /* 4. 禁止图片重复平铺 */
+            background-repeat: no-repeat;
+            /* 5. 容器高度，匹配截图长条样式 */
+            height: 500px;
+            /* 6. 文字水平居中 */
+            text-align: center;
+            /* 7. 弹性布局，文字垂直居中 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* 8. 加半透明遮罩，防止文字看不清 */
+            background-color: rgba(8, 18, 68, 0.3);
+            background-blend-mode: multiply;
+        }
+        .banner h1 {
+            font-size: 60px;
+            color: #d5dce8;
+            margin-bottom: 20px;
+        }
+        .banner p {
+            font-size: 28px;
+            color: #ffc3b4;
+        }
+        /* 景点卡片容器 */
+        .container {
+            width: 1200px;
+            margin: 0 auto 40px;
+        }
+        .container h2 {
+            color: #6c2c2c;
+            border-left: 5px solid #b88c6c;
+            padding-left: 12px;
+            margin: 30px 0 20px;
+        }
+        .spot-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .spot-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e2d3c4;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .spot-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px #d1c0b0;
+        }
+        .card-img {
+            height: 500px;
+            background-color: #d1c0b0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #6c2c2c;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .card-text {
+            padding: 15px;
+            text-align: center;
+        }
+        .card-text h3 {
+            color: #702121;
+            margin-bottom: 8px;
+        }
+        /* 页脚 */
+        footer {
+            background: #314e4a;
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+        /* 返回顶部按钮 */
+        #backTop {
+            width: 50px;
+            height: 50px;
+            background: #314e4a;
+            color: #fff;
+            border-radius: 50%;
+            position: fixed;
+            right: 60px;
+            bottom: 60px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* 子页面详情盒子，新增不改动原有样式 */
+        .detail-box{
+            width:1200px;
+            margin:30px auto;
+            background:#fff;
+            border:2px solid #e2d3c4;
+            border-radius:10px;
+            padding:40px;
+        }
+        .detail-img{
+            width:100%;
+            height: 400px;
+            background:#d1c0b0;
+            border-radius:8px;
+            margin:20px 0;
+            overflow:hidden;
+        }
+        .detail-img img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+        .detail-box p{
+            line-height:2;
+            font-size:18px;
+            margin:10px 0;
+        }
+        .detail-box h3{
+            color:#702121;
+            margin:18px 0 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-wrap">
+            <div class="title-logo">苏州旅游攻略</div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="suzhou-intro.html">苏州概况</a>
+                <a href="garden.html" class="active">苏州园林</a>
+                <a href="zhouzhuang.html">周庄古镇</a>
+                <a href="tongli.html">同里古镇</a>
+                <a href="xiyuan.html">西园寺</a>
+                <a href="jiminsi.html">鸡鸣寺</a>
+                <a href="shantang.html">七里山塘</a>
+                <a href="food.html">苏州美食</a>
+                <a href="message.html">游客留言</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="detail-box">
+        <h2>苏州古典园林</h2>
+        <div class="detail-img">
+            <img src="./拙政园5.jpg" alt="苏州园林">
+        </div>
+        <p>苏州古典园林列入世界文化遗产名录，始于春秋，鼎盛于明清。造园师将山水、花木、亭台融为一体，以小见大，含蓄雅致，是中式美学的极致体现。</p>
+        <h3>拙政园</h3>
+        <p>苏州面积最大园林，池水开阔，亭榭错落，分为东中西三区，四季风景各不相同。</p>
+        <h3>留园</h3>
+        <p>空间布局精巧，奇石长廊层层递进，一步一景，小巧而富有层次。</p>
+        <h2>游玩贴士</h2>
+        <p>开放时间：7:30-17:30；最佳游玩时节3-5月、9-11月；建议游览3小时。</p>
+    </div>
+
+    <footer>
+        <p>苏州旅游攻略网站 | 图片来源于网络</p>
+    </footer>
+    <div id="backTop">↑</div>
+    <script>
+        const backTop = document.getElementById('backTop');
+        window.onscroll = function(){
+            if(window.scrollY > 300){
+                backTop.style.display = "flex";
+            }else{
+                backTop.style.display = "none";
+            }
+        }
+        backTop.onclick = function(){
+            window.scrollTo({top:0,behavior:'smooth'})
+        }
+    </script>
+</body>
+</html>

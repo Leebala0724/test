@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苏州旅游攻略 - 江南水乡寻梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "楷体", serif;
+            background-color: #f8f3ec;
+            color: #333;
+        }
+        /* 导航栏 */
+        header {
+            background-color: #314e4a;
+            padding: 18px 0;
+        }
+        .nav-wrap {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title-logo {
+            font-size: 30px;
+            color: #fff;
+            font-weight: bold;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 18px;
+        }
+        nav a.active {
+            color: #ffd799;
+        }
+        nav a:hover {
+            color: #ffd799;
+        }
+        /* 顶部横幅 */
+        .banner {
+             /* 1. 背景图片路径*/
+            background-image: url("./苏州3.jpg");
+            /* 2. 背景铺满容器，不变形 */
+            background-size: cover;
+            /* 3. 背景居中显示 */
+            background-position: center;
+            /* 4. 禁止图片重复平铺 */
+            background-repeat: no-repeat;
+            /* 5. 容器高度，匹配截图长条样式 */
+            height: 500px;
+            /* 6. 文字水平居中 */
+            text-align: center;
+            /* 7. 弹性布局，文字垂直居中 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* 8. 加半透明遮罩，防止文字看不清 */
+            background-color: rgba(8, 18, 68, 0.3);
+            background-blend-mode: multiply;
+        }
+        .banner h1 {
+            font-size: 60px;
+            color: #d5dce8;
+            margin-bottom: 20px;
+        }
+        .banner p {
+            font-size: 28px;
+            color: #ffc3b4;
+        }
+        /* 景点卡片容器 */
+        .container {
+            width: 1200px;
+            margin: 0 auto 40px;
+        }
+        .container h2 {
+            color: #6c2c2c;
+            border-left: 5px solid #b88c6c;
+            padding-left: 12px;
+            margin: 30px 0 20px;
+        }
+        .spot-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .spot-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e2d3c4;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .spot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 6px 8px 16px #4a704c;
+        }
+        .card-img {
+            height: 500px;
+            background-color: #d1c0b0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #6c2c2c;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .card-text {
+            padding: 15px;
+            text-align: center;
+        }
+        .card-text h3 {
+            color: #2c4a56;
+            margin-bottom: 8px;
+        }
+        /* 页脚 */
+        footer {
+            background: #314e4a;
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+        /* 返回顶部按钮 */
+        #backTop {
+            width: 50px;
+            height: 50px;
+            background: #314e4a;
+            color: #fff;
+            border-radius: 50%;
+            position: fixed;
+            right: 60px;
+            bottom: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <header>
+        <div class="nav-wrap">
+            <div class="title-logo">苏州旅游攻略</div>
+            <nav>
+                <a href="index.html" class="active">首页</a>
+                <a href="suzhou-intro.html">苏州概况</a>
+                <a href="garden.html">苏州园林</a>
+                <a href="zhouzhuang.html">周庄古镇</a>
+                <a href="tongli.html">同里古镇</a>
+                <a href="xiyuan.html">西园寺</a>
+                <a href="jiminsi.html">鸡鸣寺</a>
+                <a href="shantang.html">七里山塘</a>
+                <a href="food.html">苏州美食</a>
+                <a href="message.html">游客留言</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 顶部横幅 -->
+    <div class="banner">
+        <h1>上有天堂，下有苏杭</h1>
+        <p>一站式苏州旅行指南，带你领略江南水乡与古典园林之美</p>
+    </div>
+
+    <!-- 景点卡片索引区 -->
+    <div class="container">
+        <h2>热门景点推荐（点击卡片查看详情）</h2>
+        <div class="spot-list">
+            <!-- 园林卡片 -->
+            <div class="spot-card" onclick="location.href='garden.html'">
+                <div class="card-img">
+                    <img src="./拙政园4.png" alt="园林风景图" >
+                </div>
+                <div class="card-text">
+                    <h3>苏州古典园林</h3>
+                    <p>拙政园、留园，世界文化遗产</p>
+                </div>
+            </div>
+            <!-- 周庄卡片 -->
+            <div class="spot-card" onclick="location.href='zhouzhuang.html'">
+                <div class="card-img">
+                    <img src="周庄古镇.jpg" alt="周庄古镇" >
+                </div>
+                <div class="card-text">
+                    <h3>周庄古镇</h3>
+                    <p>中国第一水乡，小桥流水人家</p>
+                </div>
+            </div>
+            <!-- 同里卡片 -->
+            <div class="spot-card" onclick="location.href='tongli.html'">
+                <div class="card-img">
+                    <img src="同里古镇1.jpg" alt="同里古镇风景图" >
+                </div>
+                <div class="card-text">
+                    <h3>同里古镇</h3>
+                    <p>千年水乡，静谧安逸</p>
+                </div>
+            </div>
+            <!-- 新增：西园寺 -->
+            <div class="spot-card" onclick="location.href='xiyuan.html'">
+                <div class="card-img">
+                    <img src="西园寺.jpg" alt="西园寺风景图" >
+                </div>
+                <div class="card-text">
+                    <h3>西园寺</h3>
+                    <p>千年古刹，禅意江南，网红素面打卡地</p>
+                </div>
+            </div>
+            <!-- 新增：虎丘 -->
+            <div class="spot-card" onclick="location.href='shantang.html'">
+                <div class="card-img">
+                    <img src="./七里山塘.jpg" alt="七里山塘风景图" >
+                </div>
+                 <div class="card-text">
+                    <h3>七里山塘</h3>
+                    <p>白居易修筑，夜景水乡，烟火江南老街</p>
+                </div>
+            </div>
+            <!-- 新增：鸡鸣寺 -->
+            <div class="spot-card" onclick="location.href='jiminsi.html'">
+                <div class="card-img">
+                    <img src="鸡鸣寺2.jpg" alt="鸡鸣寺风景图" >
+                </div>
+            <div class="card-text">
+        <h3>鸡鸣寺</h3>
+        <p>南朝第一寺，樱花古刹，禅意古建筑</p>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>苏州旅游攻略网站 | 图片来源于网络</p>
+    </footer>
+
+    <div id="backTop">↑</div>
+
+    <script>
+        // 返回顶部功能
+        const backBtn = document.getElementById("backTop");
+        window.onscroll = function() {
+            if(window.scrollY > 300) {
+                backBtn.style.display = "flex";
+            } else {
+                backBtn.style.display = "none";
+            }
+        }
+        backBtn.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        }
+    </script>
+</body>
+</html>
